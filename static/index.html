@@ -1,0 +1,74 @@
+<!doctype html>
+<!-- Assign Angular  App Module -->
+<html ng-app="app">
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <!-- Optimize mobile viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="resources/css/bootstrap.css" rel="stylesheet" />
+    <link href="resources/css/font-awesome.css" rel="stylesheet" />
+    <link href="libs/angular/ng-grid.css" rel="stylesheet" />
+    <link href="resources/css/app.css" rel="stylesheet" />
+
+    <title>Inventory and Pricing Manager</title>
+    <!-- JS LIBS -->
+    
+    <!-- load jquery -->
+    <script src="libs/jquery/jquery-1.10.2.min.js"></script>
+    <!-- load angular -->
+    <script src="libs/angular/angular.min.js"></script>
+    <!-- load angular route provider -->
+    <script src="libs/angular/angular-route.min.js"></script>
+    <!-- load angular grid ui -->
+    <script src="libs/angular/ng-grid.js"></script>
+    
+    <!-- load highcharts -->
+    <script src="libs/highcharts/highcharts-src.js"></script>
+    <!-- load angular highcharts directive-->
+    <script src="libs/angular/highcharts-ng.js"></script>
+   
+    <!-- /JS LIBS -->
+    
+    <!-- App Files -->
+    <!-- load utility functions -->
+	<script src="utilities.js"></script>
+	<!-- App module -->
+    <script src="app.js"></script>
+    <!-- Autocomplete Search -->
+	<script src="components/buttons/roundbutton_directive.js"></script>
+    <!-- Autocomplete Search -->
+	<script src="components/search/autocomplet.js"></script>
+	<!-- Forms -->
+	<script src="components/form/form_controller.js"></script>
+	<script src="components/form/form_directives.js"></script>
+	<!-- All Data Grid -->
+	<script src="components/grid/grid_controller.js"></script>
+	<!-- Stats -->
+	<script src="components/stats/stats_controller.js"></script>
+	<script src="services.js"></script>
+	<!-- /App Files -->
+	
+</head>
+<body >
+	<!-- App Header -->
+	<div>
+		<!-- Title -->
+		<div id="header" class="header">
+			<div class="title">Inventory and Pricing Manager <span class="{{cls}}"> {{title}}</span></div>
+		</div>
+		<!-- Tab Based Navigation -->
+		<div class="tab-header" id="tab-header" ng-app="app">
+			<round-button url="#/" text="Home" cls="home" icon="fa fa-home"></round-button> 
+			<round-button url="#/edit" text="Edit" cls="edit" icon="fa fa-edit"></round-button>
+			<round-button url="#/allrecords" cls="all" icon="fa fa-table" text="All"></round-button>
+			<round-button url="#/stats" cls="stats" icon="fa fa-bar-chart" text="Stats"></round-button>
+			
+		</div>	
+	</div>
+	<!-- View Container -->
+	<div class="view" ng-view></div>
+	
+</body>
+
+</html>

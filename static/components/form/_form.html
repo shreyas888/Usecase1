@@ -1,0 +1,55 @@
+<div>
+	<div class="form-header {{cls}}">
+		<autocompletesearch
+		ng-hide="isEdit"
+		id="search"
+		placeholder="Search Products"
+		pause="400"
+		url="/search?name="
+		selectedobject="product"
+		display-field="ProductName"
+		minlength= "2"
+		inputclass="form-control"
+		search-str="text"
+		localData='localData'
+		searchFields='ProductName'
+		/>
+
+		<div ng-hide="!isEdit" class="view-title" >
+			{{title}}
+		</div>
+	</div>
+
+	<form novalidate class="form" name="productForm">
+		<label for="product-id">Id <span style="font-size:10px;color:#888">(System Auto Generated)</span></label>
+		<input autocomplete="off" id="product-id" type="text" ng-model="product.Id" ng-disabled="true"/>
+		<br>
+		<label for="product-name">Product Name</label>
+		<input autocomplete="off" entertosave alpha-numeric id="product-name" type="text" ng-model="product.ProductName" ng-disabled="enableEdit" required autofocus>
+		<br>
+		<label for="cost">Cost/Unit in &#8377;</label>
+		<input autocomplete="off"  entertosave numeric id="cost" type="number" ng-model="product.Cost" ng-disabled="!isEdit" required>
+		<br>
+		<label for="price">Selling Price/Unit in &#8377;</label>
+		<input ng-blur="priceChange()" entertosave numeric autocomplete="off"  id="price" type="number" ng-model="product.Price" ng-disabled="enableEdit" required>
+		<br>
+		<label for="quantity">Qunatity</label>
+		<input autocomplete="off"  entertosave numeric id="quantity" type="text" ng-model="product.Quantity" ng-disabled="!isEdit" required>
+		<br>
+
+		<center>
+			<button ng-hide="isEdit" ng-click="reset()" ng-disabled="!enableSave" ng-class="{ 'round-button-medium': true, 'reset': enableSave }">
+				Reset
+			</button>
+			<button ng-click="cancel()" ng-disabled="!enabelCancel" ng-class="{ 'round-button-medium': true, 'cancel': enabelCancel }">
+				Cancel
+			</button>
+			<button ng-click="save()" ng-disabled="!productForm.$valid" ng-class="{ 'round-button-medium': true, 'save': enableSave && productForm.$valid}">
+				Save
+			</button>
+		</center>
+	</form>
+	<div></div>
+	<div class="message">{{message}}</div>
+</div>
+
